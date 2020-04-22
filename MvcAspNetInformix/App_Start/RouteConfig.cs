@@ -15,7 +15,7 @@ namespace MvcTestTaskBars
 
             routes.MapRoute(
                 name: "Default",
-                url: "{controller}/{action}",
+                url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }///{id}
             );
         }

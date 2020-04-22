@@ -3118,6 +3118,7 @@
     <Content Include="Scripts\extjs\resources\ext-theme-classic\Readme.md" />
     <Content Include="Scripts\extjs\resources\ext-theme-gray\Readme.md" />
     <Content Include="Scripts\extjs\resources\ext-theme-neptune\Readme.md" />
+    <Content Include="Scripts\app\data\users.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

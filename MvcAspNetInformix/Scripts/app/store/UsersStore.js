@@ -3,21 +3,25 @@ Ext.define('MvcExtTest.store.UsersStore', {
     model: 'MvcExtTest.model.User',
     autoLoad: true,
     storeId: 'UsersStore',
-    pageSize: 4,
+    
     proxy: {
         type: 'ajax',
-        url: "ReadJson/GetData",
+        //api: {
+        //    read: 'Scripts/app/data/users.json',
+        //},
+        //url: 'Scripts/app/data/users.json',
+        pageSize: 4,
+        url: 'ReadJson/GetData',
         reader: {
             type: 'json',
             method: 'POST',
             //root: 'users',
-            //successProperty: 'success'
-            simpleSortMode: true
+            //totalProperty: 12 ,
+            //successProperty: 'success',
+            enablePaging: true
+            //simpleSortMode: true
         },
-        /*sorters: [{
-            property: 'lastpost',
-            direction: 'DESC'
-        }]*/
-        //pageSize: 10
+        
+        
     }
 });
