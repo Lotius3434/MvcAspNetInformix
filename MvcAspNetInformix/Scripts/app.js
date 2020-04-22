@@ -2,7 +2,7 @@ Ext.application({
 	requires: ['Ext.container.Viewport'],
 	name: 'MvcExtTest',
 	appFolder: 'Scripts/app',
-	controllers: ['Users'],
+	//controllers: ['Users'],
 
 	launch: function() {
 		Ext.create('Ext.container.Viewport', {

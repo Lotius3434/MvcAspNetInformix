@@ -3,6 +3,6 @@ Ext.define('MvcExtTest.controller.Users', {
 
     views: ['TableUser'],
     stores: ['UsersStore'],
-    models: ['User']
+    //models: ['User']
 
 });
