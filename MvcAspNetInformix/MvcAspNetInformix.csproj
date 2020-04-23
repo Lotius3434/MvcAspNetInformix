@@ -153,6 +153,7 @@
     <Content Include="Scripts\app\controller\Users.js" />
     <Content Include="Scripts\app\model\User.js" />
     <Content Include="Scripts\app\store\UsersStore.js" />
+    <Content Include="Scripts\app\view\EditTableUser.js" />
     <Content Include="Scripts\app\view\TableUser.js" />
     <Content Include="Scripts\extjs\ext-all.js" />
     <Content Include="Scripts\extjs\resources\css\ext-all-access-debug.css" />

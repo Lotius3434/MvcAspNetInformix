@@ -2,7 +2,7 @@ Ext.define('MvcExtTest.view.EditTableUser', {
     extend: 'Ext.window.Window',
     alias: 'widget.editTableUser',
 
-    title: 'Книга',
+    title: 'Редактирование',
     layout: 'fit',
     autoShow: true,
 

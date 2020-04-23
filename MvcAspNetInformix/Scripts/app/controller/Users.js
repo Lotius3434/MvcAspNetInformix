@@ -1,7 +1,7 @@
 Ext.define('MvcExtTest.controller.Users', {
     extend: 'Ext.app.Controller',
 
-    views: ['TableUser'],
+    views: ['TableUser', 'EditTableUser'],
     stores: ['UsersStore'],
     models: ['User'],
     init: function() {
