@@ -8,10 +8,27 @@ Ext.define('MvcExtTest.view.TableUser' ,{
     
 
     initComponent: function () {
-        this.plugins = [Ext.create('Ext.grid.plugin.RowEditing',
-            {
-                clicksToEdit: 2
-            })],
+        this.items = [{
+            xtype: 'form',
+            items: [{
+                xtype: 'textfield',
+                name: 'name',
+                fieldLabel: 'Название'
+            }, {
+                xtype: 'textfield',
+                name: 'author',
+                fieldLabel: 'Автор'
+            }, {
+                 xtype: 'textfield',
+                name: 'year',
+                fieldLabel: 'Год',
+                minValue: 1,
+            }]
+        }];
+        //this.plugins = [Ext.create('Ext.grid.plugin.RowEditing',
+        //    {
+        //        clicksToEdit: 2
+        //    })],
         this.columns = [
             {header: 'id',  dataIndex: 'id',  flex: 1},
             {header: 'Фамилия',  dataIndex: 'surname',  flex: 1},
