@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace MvcAspNetInformix.DbConnection
+﻿namespace MvcAspNetInformix.DbConnection
 {
-    public class SqlMaster
+    public class SqlMaster : ISqlMaster
     {
         string NameTable = "table_users";
 

@@ -34,7 +34,7 @@ Ext.define('MvcExtTest.view.TableUser' ,{
         ],
         this.bbar = Ext.create('Ext.PagingToolbar', {
             store: 'UsersStore',
-            pageSize: 4,
+            pageSize: 10,
             displayInfo: true,
             displayMsg: 'Displaying topics {0} - {1} of {2}',
             emptyMsg: "No topics to display"

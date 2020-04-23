@@ -17,7 +17,7 @@ namespace MvcTestTaskBars.Controllers
 
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
-            IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
+            IMasterGetDataTable masterConnection = cont.Resolve<IMasterGetDataTable>();
             SqlMaster sqlMaster = new SqlMaster();
             List<Users> users = masterConnection.GetDataTable(sqlMaster.GetAllColumn());
 

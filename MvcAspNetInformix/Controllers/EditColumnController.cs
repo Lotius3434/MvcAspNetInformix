@@ -1,10 +1,6 @@
 ﻿using Castle.Windsor;
 using MvcAspNetInformix.DbConnection;
 using MvcAspNetInformix.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace MvcAspNetInformix.Controllers
@@ -15,10 +11,11 @@ namespace MvcAspNetInformix.Controllers
         {
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
-            IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
-            SqlMaster sqlMaster = new SqlMaster();
+            IMasterEditDataTable masterEditDataTable = cont.Resolve<IMasterEditDataTable>();
+            ISqlMaster sqlMaster = cont.Resolve<ISqlMaster>();
 
-            ResulResponse resulResponse = masterConnection.EditDataTable(sqlMaster.CreateColumn(surname, name, patronymicName));
+
+            ResulResponse resulResponse = masterEditDataTable.EditDataTable(sqlMaster.CreateColumn(surname, name, patronymicName));
 
             return Json(resulResponse, JsonRequestBehavior.AllowGet);
         }
@@ -26,10 +23,10 @@ namespace MvcAspNetInformix.Controllers
         {
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
-            IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
-            SqlMaster sqlMaster = new SqlMaster();
+            IMasterEditDataTable masterEditDataTable = cont.Resolve<IMasterEditDataTable>();
+            ISqlMaster sqlMaster = cont.Resolve<ISqlMaster>();
 
-            ResulResponse resulResponse = masterConnection.EditDataTable(sqlMaster.UpdateColumn(id, surname, name, patronymicName));
+            ResulResponse resulResponse = masterEditDataTable.EditDataTable(sqlMaster.UpdateColumn(id, surname, name, patronymicName));
 
             return Json(resulResponse, JsonRequestBehavior.AllowGet);
         }
@@ -37,10 +34,10 @@ namespace MvcAspNetInformix.Controllers
         {
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
-            IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
-            SqlMaster sqlMaster = new SqlMaster();
+            IMasterEditDataTable masterEditDataTable = cont.Resolve<IMasterEditDataTable>();
+            ISqlMaster sqlMaster = cont.Resolve<ISqlMaster>();
 
-            ResulResponse resulResponse = masterConnection.EditDataTable(sqlMaster.DeleteColumn(id));
+            ResulResponse resulResponse = masterEditDataTable.EditDataTable(sqlMaster.DeleteColumn(id));
 
             return Json(resulResponse, JsonRequestBehavior.AllowGet);
         }

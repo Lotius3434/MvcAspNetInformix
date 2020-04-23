@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace MvcAspNetInformix.DbConnection
 {
-    public class MasterConnection : IMasterConnection
+    public class MasterConnection : IMasterGetDataTable , IMasterEditDataTable
     {
         IConfigurationParser configuration;
         IConnectionInfmxGetData connectionInformix;
@@ -22,7 +22,7 @@ namespace MvcAspNetInformix.DbConnection
         {
             configuration.ParseConfiguration();
 
-            //connectionInformix.CreateConnection(configuration.nameTable, configuration.configurationConnect);
+            
             connectionInformix.CreateConnection(configuration.configurationConnect, sql);
             connectionInformix.OpenConnection();
 

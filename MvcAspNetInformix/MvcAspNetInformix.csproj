@@ -139,7 +139,8 @@
     <Compile Include="DbConnection\IConfigurationParser.cs" />
     <Compile Include="DbConnection\IConnectionInfmxEditTable.cs" />
     <Compile Include="DbConnection\IConnectionInfmxGetData.cs" />
-    <Compile Include="DbConnection\IMasterConnection.cs" />
+    <Compile Include="DbConnection\IMasterEditDataTable.cs" />
+    <Compile Include="DbConnection\IMasterGetDataTable.cs" />
     <Compile Include="DbConnection\ISqlMaster.cs" />
     <Compile Include="DbConnection\MasterConnection.cs" />
     <Compile Include="DbConnection\SqlMaster.cs" />

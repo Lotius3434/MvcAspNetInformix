@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 
-
 namespace MvcAspNetInformix.DbConnection
 {
     public interface IConnectionInfmxGetData

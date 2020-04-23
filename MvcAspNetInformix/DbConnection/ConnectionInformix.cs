@@ -1,11 +1,6 @@
-﻿
-
-using IBM.Data.Informix;
+﻿using IBM.Data.Informix;
 using MvcAspNetInformix.Models;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 
 namespace MvcAspNetInformix.DbConnection
