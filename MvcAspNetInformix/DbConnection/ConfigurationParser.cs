@@ -32,7 +32,7 @@ namespace MvcAspNetInformix.DbConnection
             //ConfigurationConnect = ConfigurationManager.AppSettings[searkeyKeyDataBase];
             //NameTable = ConfigurationManager.AppSettings[searkeyDataBaseTable]testbars;Client RU_RU.8859-5;Database Locale=RU_RU.8859-5;
             ConfigurationConnect = "Database=newtable_users; Host=localhost; Server=test_artem; Service=turbo1;Client Locale=ru_ru.CP1251;Database Locale=RU_RU.8859-5; Protocol=olsoctcp; UID=informix;Password=zcxfcnkbd;";
-            NameTable = "table_users";
+            //NameTable = "table_users";
         }
     }
 }

@@ -31,7 +31,7 @@ Ext.define('MvcExtTest.view.EditTableUser', {
                 text:'Создать',
                 action: 'new'
             },{
-                text:'Сохранить',
+                text:'Изменить',
                 action: 'save'
             },{
                 text:'Удалить',

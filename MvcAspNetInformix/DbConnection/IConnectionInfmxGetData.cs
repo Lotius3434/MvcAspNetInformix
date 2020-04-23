@@ -3,9 +3,9 @@
 
 namespace MvcAspNetInformix.DbConnection
 {
-    public interface IConnectionInformix
+    public interface IConnectionInfmxGetData
     {
-        void CreateConnection(string nametable, string configuration);
+        void CreateConnection(string configuration, string sql);
         IList<List<string>> GetDataReader();
         void OpenConnection();
         void CloseConnection();

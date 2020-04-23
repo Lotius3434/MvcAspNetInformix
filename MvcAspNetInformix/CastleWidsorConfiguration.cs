@@ -9,9 +9,11 @@ namespace MvcAspNetInformix
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            container.Register(Component.For<IMasterConnection>().ImplementedBy<MasterConnection>());
-            container.Register(Component.For<IConfigurationParser>().ImplementedBy<ConfigurationParser>());
-            container.Register(Component.For<IConnectionInformix>().ImplementedBy<ConnectionInformix>());
+            container.Register(Component.For<IMasterConnection>().ImplementedBy<MasterConnection>().LifestyleTransient());
+            container.Register(Component.For<IConfigurationParser>().ImplementedBy<ConfigurationParser>().LifestyleTransient());
+            container.Register(Component.For<IConnectionInfmxGetData>().ImplementedBy<ConnectionInformix>().LifestyleTransient().Named("IConnectionInfmxGetData"));
+            container.Register(Component.For<IConnectionInfmxEditTable>().ImplementedBy<ConnectionInformix>().LifestyleTransient().Named("IConnectionInfmxEditTable"));
+            
         }
     }
 }

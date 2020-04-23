@@ -18,24 +18,23 @@ namespace MvcTestTaskBars.Controllers
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
             IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
-            
-            List<Users> users = masterConnection.GetDataTable();
+            SqlMaster sqlMaster = new SqlMaster();
+            List<Users> users = masterConnection.GetDataTable(sqlMaster.GetAllColumn());
 
-            
-            List<Users> newUsers = new List<Users>();
             int startIndex = start;
-            for (int i = 0; i < limit; i++)
+            int Limit = limit;
+            int totalLimit = users.Count - start;
+            if (totalLimit < Limit)
             {
+                Limit = totalLimit;
+            }
 
-                if (users[startIndex] != null)
-                {
-                    newUsers.Add(users[startIndex]);
-                    startIndex++;
-                }
-                else
-                {
-                    break;
-                }
+            List<Users> newUsers = new List<Users>();
+            
+            for (int i = 0; i < Limit; i++)
+            {
+                newUsers.Add(users[startIndex]);
+                startIndex++;
             }
             
             listingUsers.total = users.Count;
