@@ -31,7 +31,7 @@ Ext.define('MvcExtTest.controller.Users', {
             id = form.getRecord().get('id');
         values.id=id;
         Ext.Ajax.request({
-            url: 'app/data/update.php',
+            url: 'TestEditColumn/UpdateColumn',
             params: values,
             success: function(response){
                 var data=Ext.decode(response.responseText);

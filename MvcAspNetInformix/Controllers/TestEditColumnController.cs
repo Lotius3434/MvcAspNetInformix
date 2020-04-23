@@ -13,7 +13,7 @@ namespace MvcAspNetInformix.Controllers
         {
             return View();
         }
-        public ActionResult UpdateColumn()
+        public ActionResult UpdateColumn(int id, string surname,string name,string patronymicName)
         {
             return View();
         }

@@ -19,6 +19,8 @@ namespace MvcAspNetInformix.Controllers
             //deserialize JSON from file  
             string json = System.IO.File.ReadAllText(file);
             JavaScriptSerializer ser = new JavaScriptSerializer();
+            
+            
             var Userslist = ser.Deserialize<List<Users>>(json);
 
             List<Users> newUsers = new List<Users>();
