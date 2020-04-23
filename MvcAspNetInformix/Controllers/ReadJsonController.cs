@@ -10,10 +10,10 @@ namespace MvcTestTaskBars.Controllers
     public class ReadJsonController : Controller
     {
         
-        public ActionResult GetData(int page,int start,int limit)
+        public ActionResult GetData(int start,int limit)
         {
-            List<List<Users>> pagesUsers = new List<List<Users>>();
-            List<Users> newListusers;
+            
+            ListingUsers listingUsers = new ListingUsers();
 
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
@@ -21,42 +21,27 @@ namespace MvcTestTaskBars.Controllers
             
             List<Users> users = masterConnection.GetDataTable();
 
-            //int totalPages = users.Count / limit;
-            //if (totalPages == 0)
-            //{
-            //    totalPages = 1;
-            //}
+            
+            List<Users> newUsers = new List<Users>();
+            int startIndex = start;
+            for (int i = 0; i < limit; i++)
+            {
 
-            //int startIndex = 0;
+                if (users[startIndex] != null)
+                {
+                    newUsers.Add(users[startIndex]);
+                    startIndex++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            
+            listingUsers.total = users.Count;
+            listingUsers.newUsers = newUsers;
 
-            //for (int i = 0; i < totalPages; i++)
-            //{
-            //    newListusers = new List<Users>();
-            //    if (limit < users.Count || limit == users.Count)
-            //    {
-            //        for (int a = 0; a < limit; a++)
-            //        {
-            //            newListusers.Add(users[startIndex]);
-            //            startIndex++;
-            //        }
-            //    }
-            //    else
-            //    {
-            //        int newlimit = limit - users.Count;
-            //        for (int a = 0; a < newlimit; a++)
-            //        {
-            //            newListusers.Add(users[startIndex]);
-            //            startIndex++;
-            //        }
-            //    }
-            //    pagesUsers.Add(newListusers);
-            //    newListusers = null;
-            //}
-
-
-
-
-            return Json(users, JsonRequestBehavior.AllowGet);
+            return Json(listingUsers, JsonRequestBehavior.AllowGet);
         }
     }
 }
