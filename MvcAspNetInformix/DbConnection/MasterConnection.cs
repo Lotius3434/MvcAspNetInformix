@@ -3,24 +3,27 @@ using System.Collections.Generic;
 
 namespace MvcAspNetInformix.DbConnection
 {
-    public class MasterConnection : IMasterConnection
+    public class MasterConnection : IMasterGetDataTable , IMasterEditDataTable
     {
         IConfigurationParser configuration;
-        IConnectionInformix connectionInformix;
+        IConnectionInfmxGetData connectionInformix;
+        IConnectionInfmxEditTable connectionInfmxEditTable;
         List<Users> users = new List<Users>();
         IList<List<string>> listcolumn;
 
-        public MasterConnection(IConnectionInformix connectionInformix, IConfigurationParser configuration)
+        public MasterConnection(IConnectionInfmxGetData connectionInformix, IConfigurationParser configuration , IConnectionInfmxEditTable connectionInfmxEditTable)
         {
 
             this.connectionInformix = connectionInformix;
             this.configuration = configuration;
+            this.connectionInfmxEditTable = connectionInfmxEditTable;
         }
-        public List<Users> GetDataTable()
+        public List<Users> GetDataTable(string sql)
         {
             configuration.ParseConfiguration();
 
-            connectionInformix.CreateConnection(configuration.nameTable, configuration.configurationConnect);
+            
+            connectionInformix.CreateConnection(configuration.configurationConnect, sql);
             connectionInformix.OpenConnection();
 
             listcolumn = connectionInformix.GetDataReader();
@@ -37,6 +40,18 @@ namespace MvcAspNetInformix.DbConnection
 
             return users;
 
+        }
+        public ResulResponse EditDataTable(string sql)
+        {
+            configuration.ParseConfiguration();
+
+            connectionInfmxEditTable.CreateConnection(configuration.configurationConnect, sql);
+            connectionInfmxEditTable.OpenConnection();
+
+            ResulResponse result = connectionInfmxEditTable.EditTable();
+
+            connectionInfmxEditTable.CloseConnection();
+            return result;
         }
     }
 }

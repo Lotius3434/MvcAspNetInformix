@@ -12,27 +12,35 @@ namespace MvcTestTaskBars.Controllers
         
         public ActionResult GetData(int start,int limit)
         {
+            
+            ListingUsers listingUsers = new ListingUsers();
+
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
-            IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
-            
-            List<Users> users = masterConnection.GetDataTable();
-            List<Users> newUsers = new List<Users>();
+            IMasterGetDataTable masterConnection = cont.Resolve<IMasterGetDataTable>();
+            SqlMaster sqlMaster = new SqlMaster();
+            List<Users> users = masterConnection.GetDataTable(sqlMaster.GetAllColumn());
+
             int startIndex = start;
-            for (int i = 0; i < limit; i++)
+            int Limit = limit;
+            int totalLimit = users.Count - start;
+            if (totalLimit < Limit)
             {
-                
-                if (users[startIndex] != null)
-                {
-                    newUsers.Add(users[startIndex]);
-                    startIndex++;
-                }
-                else
-                {
-                    break;
-                }
+                Limit = totalLimit;
             }
-            return Json(newUsers, JsonRequestBehavior.AllowGet);
+
+            List<Users> newUsers = new List<Users>();
+            
+            for (int i = 0; i < Limit; i++)
+            {
+                newUsers.Add(users[startIndex]);
+                startIndex++;
+            }
+            
+            listingUsers.total = users.Count;
+            listingUsers.newUsers = newUsers;
+
+            return Json(listingUsers, JsonRequestBehavior.AllowGet);
         }
     }
 }
