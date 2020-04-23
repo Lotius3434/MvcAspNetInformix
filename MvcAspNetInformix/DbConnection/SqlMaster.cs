@@ -32,9 +32,10 @@ namespace MvcAspNetInformix.DbConnection
                          "WHERE id =" + id.ToString();
             return sql;
         }
-        public void DeleteColumn()
+        public string DeleteColumn(int id)
         {
-
+            string sql = "DELETE FROM " + NameTable + " WHERE id = " + id;
+            return sql;
         }
         void ReplaceString(ref string surnameText, ref string nameText, ref string patronymicNameText)
         {

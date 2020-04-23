@@ -31,7 +31,7 @@ Ext.define('MvcExtTest.controller.Users', {
             id = form.getRecord().get('id');
         values.id=id;
         Ext.Ajax.request({
-            url: 'TestEditColumn/UpdateColumn',
+            url: 'EditColumn/UpdateColumn',
             params: values,
             success: function(response){
                 var data=Ext.decode(response.responseText);
@@ -52,7 +52,7 @@ Ext.define('MvcExtTest.controller.Users', {
             form   = win.down('form'),
             values = form.getValues();
         Ext.Ajax.request({
-            url: 'TestEditColumn/CreateColumn',
+            url: 'EditColumn/CreateColumn',
             params: values,
             success: function(response, options){
                 var data=Ext.decode(response.responseText);
@@ -73,7 +73,7 @@ Ext.define('MvcExtTest.controller.Users', {
             form   = win.down('form'),
             id = form.getRecord().get('id');
         Ext.Ajax.request({
-            url: 'app/data/delete.php',
+            url: 'EditColumn/DeleteColumn',
             params: {id:id},
             success: function(response){
                 var data=Ext.decode(response.responseText);
