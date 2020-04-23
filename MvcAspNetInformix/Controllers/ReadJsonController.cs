@@ -10,7 +10,7 @@ namespace MvcTestTaskBars.Controllers
     public class ReadJsonController : Controller
     {
         
-        public ActionResult GetData()
+        public ActionResult GetData(int page)
         {
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());

@@ -8,10 +8,13 @@ Ext.define('MvcExtTest.store.UsersStore', {
     pageSize: 2,
     proxy: {
         type: 'ajax',
+        
         url: "ReadJson/GetData",
+        
+        
         reader: {
             type: 'json',
-            method: 'POST',
+            method: 'GET',
             enablePaging: true
             //root: 'users',
             //successProperty: 'success'
