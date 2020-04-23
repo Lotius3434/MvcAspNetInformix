@@ -15,9 +15,13 @@ namespace MvcAspNetInformix.DbConnection
             string sql = "Select* FROM  " + NameTable;
             return sql;
         }
-        public void CreateColumn()
+        public string CreateColumn(string surnameText, string nameText, string patronymicNameText)
         {
+            ReplaceString(ref surnameText, ref nameText, ref patronymicNameText);
 
+            string sql = "INSERT INTO " + NameTable + " (surname, name, patronymicName)"+
+                         "VALUES ('" + surnameText + "'"+", "+"'" + nameText + "'" + ", " + "'" + patronymicNameText + "') ";
+            return sql;
         }
         public string UpdateColumn(int id, string surnameText, string nameText, string patronymicNameText)
         {

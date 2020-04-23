@@ -53,13 +53,13 @@ namespace MvcAspNetInformix.DbConnection
             if(res == 1)
             {                
                 resulResponse.success = true;
-                resulResponse.message = "Строка обновлена";
+                resulResponse.message = "Операция выполнена";
                 return resulResponse;
             }
             else
             {                
                 resulResponse.success = false;
-                resulResponse.message = "Ошибка строка не обновлена";
+                resulResponse.message = "Ошибка! Операция не выполнена";
                 return resulResponse;
             }
         }

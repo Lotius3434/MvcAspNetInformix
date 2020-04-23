@@ -12,9 +12,16 @@ namespace MvcAspNetInformix.Controllers
     public class TestEditColumnController : Controller
     {
         // GET: TestEditColumn
-        public ActionResult CreateColumn()
+        public ActionResult CreateColumn(string surname, string name, string patronymicName)
         {
-            return View();
+            var cont = new WindsorContainer();
+            cont.Install(new CastleWidsorConfiguration());
+            IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
+            SqlMaster sqlMaster = new SqlMaster();
+
+            ResulResponse ResulResponse = masterConnection.EditDataTable(sqlMaster.CreateColumn(surname, name, patronymicName));
+
+            return Json(ResulResponse, JsonRequestBehavior.AllowGet);
         }
         public ActionResult UpdateColumn(int id, string surname,string name,string patronymicName)
         {

@@ -52,7 +52,7 @@ Ext.define('MvcExtTest.controller.Users', {
             form   = win.down('form'),
             values = form.getValues();
         Ext.Ajax.request({
-            url: 'app/data/create.php',
+            url: 'TestEditColumn/CreateColumn',
             params: values,
             success: function(response, options){
                 var data=Ext.decode(response.responseText);
