@@ -10,14 +10,29 @@ namespace MvcTestTaskBars.Controllers
     public class ReadJsonController : Controller
     {
         
-        public ActionResult GetData(int page)
+        public ActionResult GetData(int start,int limit)
         {
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
             IMasterConnection masterConnection = cont.Resolve<IMasterConnection>();
             
             List<Users> users = masterConnection.GetDataTable();
-            return Json(users, JsonRequestBehavior.AllowGet);
+            List<Users> newUsers = new List<Users>();
+            int startIndex = start;
+            for (int i = 0; i < limit; i++)
+            {
+                
+                if (users[startIndex] != null)
+                {
+                    newUsers.Add(users[startIndex]);
+                    startIndex++;
+                }
+                else
+                {
+                    break;
+                }
+            }
+            return Json(newUsers, JsonRequestBehavior.AllowGet);
         }
     }
 }
