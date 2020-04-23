@@ -10,7 +10,7 @@ Ext.define('MvcExtTest.store.UsersStore', {
         //    read: 'ReadJson/GetData',
         //},
 
-        url: 'ReadJson/GetData',
+        url: 'TestReadJson/GetData',
         reader: {
             type: 'json',
             method: 'POST',

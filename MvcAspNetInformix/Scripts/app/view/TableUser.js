@@ -25,10 +25,7 @@ Ext.define('MvcExtTest.view.TableUser' ,{
                 minValue: 1,
             }]
         }];
-        //this.plugins = [Ext.create('Ext.grid.plugin.RowEditing',
-        //    {
-        //        clicksToEdit: 2
-        //    })],
+
         this.columns = [
             {header: 'id',  dataIndex: 'id',  flex: 1},
             {header: 'Фамилия',  dataIndex: 'surname',  flex: 1},

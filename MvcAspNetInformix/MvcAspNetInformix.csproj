@@ -133,6 +133,8 @@
     <Compile Include="CastleWidsorConfiguration.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadJsonController.cs" />
+    <Compile Include="Controllers\TestEditColumnController.cs" />
+    <Compile Include="Controllers\TestReadJsonController.cs" />
     <Compile Include="DbConnection\ConfigurationParser.cs" />
     <Compile Include="DbConnection\ConnectionInformix.cs" />
     <Compile Include="DbConnection\IConfigurationParser.cs" />
@@ -3112,6 +3114,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\TestCreateColomn\" />
+    <Folder Include="Views\TestEditColumn\" />
+    <Folder Include="Views\TestReadJson\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -3120,6 +3125,7 @@
     <Content Include="Scripts\extjs\resources\ext-theme-classic\Readme.md" />
     <Content Include="Scripts\extjs\resources\ext-theme-gray\Readme.md" />
     <Content Include="Scripts\extjs\resources\ext-theme-neptune\Readme.md" />
+    <Content Include="TestData\Users.json" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
