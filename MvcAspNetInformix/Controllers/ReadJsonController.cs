@@ -1,6 +1,7 @@
 ﻿using Castle.Windsor;
 using MvcAspNetInformix;
 using MvcAspNetInformix.DbConnection;
+using MvcAspNetInformix.DbConnection.WorkSql;
 using MvcAspNetInformix.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -18,7 +19,7 @@ namespace MvcTestTaskBars.Controllers
             var cont = new WindsorContainer();
             cont.Install(new CastleWidsorConfiguration());
             IMasterGetDataTable masterConnection = cont.Resolve<IMasterGetDataTable>();
-            SqlMaster sqlMaster = new SqlMaster();
+            ISqlMaster sqlMaster = cont.Resolve<ISqlMaster>();
             List<Users> users = masterConnection.GetDataTable(sqlMaster.GetAllColumn());
 
             int startIndex = start;

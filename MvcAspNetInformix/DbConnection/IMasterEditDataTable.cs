@@ -4,6 +4,6 @@ namespace MvcAspNetInformix.DbConnection
 {
     public interface IMasterEditDataTable
     {
-        ResulResponse EditDataTable(string sql);
+        ResulResponse EditDataTable(SqlResult sqlResult);
     }
 }

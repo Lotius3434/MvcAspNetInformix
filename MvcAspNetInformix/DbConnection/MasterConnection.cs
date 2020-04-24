@@ -1,4 +1,6 @@
-﻿using MvcAspNetInformix.Models;
+﻿using MvcAspNetInformix.DbConnection.ConnectionInfrmx;
+using MvcAspNetInformix.DbConnection.ParsingConfiguration;
+using MvcAspNetInformix.Models;
 using System.Collections.Generic;
 
 namespace MvcAspNetInformix.DbConnection
@@ -41,14 +43,14 @@ namespace MvcAspNetInformix.DbConnection
             return users;
 
         }
-        public ResulResponse EditDataTable(string sql)
+        public ResulResponse EditDataTable(SqlResult sqlResult)
         {
             configuration.ParseConfiguration();
 
-            connectionInfmxEditTable.CreateConnection(configuration.configurationConnect, sql);
+            connectionInfmxEditTable.CreateConnection(configuration.configurationConnect, sqlResult.sql);
             connectionInfmxEditTable.OpenConnection();
 
-            ResulResponse result = connectionInfmxEditTable.EditTable();
+            ResulResponse result = connectionInfmxEditTable.EditTable(sqlResult);
 
             connectionInfmxEditTable.CloseConnection();
             return result;

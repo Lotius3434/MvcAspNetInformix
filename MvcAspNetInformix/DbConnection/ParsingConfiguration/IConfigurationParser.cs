@@ -1,4 +1,4 @@
-﻿namespace MvcAspNetInformix.DbConnection
+﻿namespace MvcAspNetInformix.DbConnection.ParsingConfiguration
 {
     public interface IConfigurationParser
     {

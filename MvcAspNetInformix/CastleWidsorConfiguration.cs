@@ -2,6 +2,9 @@
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 using MvcAspNetInformix.DbConnection;
+using MvcAspNetInformix.DbConnection.ConnectionInfrmx;
+using MvcAspNetInformix.DbConnection.ParsingConfiguration;
+using MvcAspNetInformix.DbConnection.WorkSql;
 
 namespace MvcAspNetInformix
 {
@@ -15,6 +18,7 @@ namespace MvcAspNetInformix
             container.Register(Component.For<IConnectionInfmxGetData>().ImplementedBy<ConnectionInformix>().LifestyleTransient().Named("IConnectionInfmxGetData"));
             container.Register(Component.For<IConnectionInfmxEditTable>().ImplementedBy<ConnectionInformix>().LifestyleTransient().Named("IConnectionInfmxEditTable"));
             container.Register(Component.For<ISqlMaster>().ImplementedBy<SqlMaster>().LifestyleTransient());
+            container.Register(Component.For<ICommandIfxParams>().ImplementedBy<CommandIfxParams>().LifestyleTransient());       
         }
     }
 }
