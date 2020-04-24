@@ -33,20 +33,20 @@ namespace MvcAspNetInformix.DbConnection.ConnectionInfrmx
         }
         void CreateColumnCreateParams()
         {
-            ifxCommand.Parameters.Add("@Surname", sqlResult.ParamsUsers.surname);
-            ifxCommand.Parameters.Add("@Name", sqlResult.ParamsUsers.name);
-            ifxCommand.Parameters.Add("@PatronymicName", sqlResult.ParamsUsers.patronymicName);
+            ifxCommand.Parameters.Add(new IfxParameter("surname", sqlResult.ParamsUsers.surname));
+            ifxCommand.Parameters.Add(new IfxParameter("name", sqlResult.ParamsUsers.name));
+            ifxCommand.Parameters.Add(new IfxParameter("patronymicName", sqlResult.ParamsUsers.patronymicName));
         }
         void UpdateColumnCreateParams()
         {
-            ifxCommand.Parameters.Add("@Surname", sqlResult.ParamsUsers.surname);
-            ifxCommand.Parameters.Add("@Name", sqlResult.ParamsUsers.name);
-            ifxCommand.Parameters.Add("@PatronymicName", sqlResult.ParamsUsers.patronymicName);
-            ifxCommand.Parameters.Add("@Id", sqlResult.ParamsUsers.id);
+            ifxCommand.Parameters.Add(new IfxParameter("surname", sqlResult.ParamsUsers.surname));
+            ifxCommand.Parameters.Add(new IfxParameter("name", sqlResult.ParamsUsers.name));
+            ifxCommand.Parameters.Add(new IfxParameter("patronymicName", sqlResult.ParamsUsers.patronymicName));
+            ifxCommand.Parameters.Add(new IfxParameter("id", sqlResult.ParamsUsers.id));            
         }
         void DeleteColumnCreateParams()
         {
-            ifxCommand.Parameters.Add("@Id", sqlResult.ParamsUsers.id);
+            ifxCommand.Parameters.Add(new IfxParameter("id", sqlResult.ParamsUsers.id));
         }
     }
 }

@@ -17,7 +17,7 @@ namespace MvcAspNetInformix.DbConnection.WorkSql
             
 
             string sql = "INSERT INTO " + NameTable + " (surname, name, patronymicName)"+
-                         "VALUES (@Surname, @Name, @PatronymicName)";
+                         "VALUES (?,?,?)";
 
             SqlResult sqlResult = new SqlResult();
             sqlResult.sql = sql;
@@ -31,12 +31,10 @@ namespace MvcAspNetInformix.DbConnection.WorkSql
             return sqlResult;
         }
         public SqlResult UpdateColumn(int id, string surnameText, string nameText, string patronymicNameText)
-        {
-            
-            
-            string sql = "UPDATE "+ NameTable + " SET (surname, name, patronymicName) = " +
-                         "(@Surname, @Name, @PatronymicName)" +
-                         "WHERE id = @id";
+        {            
+            string sql = "UPDATE " + NameTable + " SET (surname, name, patronymicName) = " +
+                         "(?,?,?)" +
+                         "WHERE id = ?";
 
             SqlResult sqlResult = new SqlResult();
             sqlResult.sql = sql;
@@ -52,7 +50,7 @@ namespace MvcAspNetInformix.DbConnection.WorkSql
         }
         public SqlResult DeleteColumn(int id)
         {
-            string sql = "DELETE FROM " + NameTable + " WHERE id = @Id";
+            string sql = "DELETE FROM " + NameTable + " WHERE id = ?";
 
             SqlResult sqlResult = new SqlResult();
             sqlResult.sql = sql;
