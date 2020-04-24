@@ -41,7 +41,7 @@ Ext.define('MvcExtTest.controller.Users', {
                     Ext.Msg.alert('Обновление',data.message);
                 }
                 else{
-                    Ext.Msg.alert('Обновление','Не удалось обновить книгу в библиотеке');
+                    Ext.Msg.alert('Обновление','Не удалось обновить строку ');
                 }
             }
         });
@@ -62,7 +62,7 @@ Ext.define('MvcExtTest.controller.Users', {
                     store.load();
                 }
                 else{
-                    Ext.Msg.alert('Создание','Не удалось добавить книгу в библиотеку');
+                    Ext.Msg.alert('Создание','Не удалось создать строку');
                 }
             }
         });
@@ -85,7 +85,7 @@ Ext.define('MvcExtTest.controller.Users', {
                     form.getForm.reset();
                 }
                 else{
-                    Ext.Msg.alert('Удаление','Не удалось удалить книгу из библиотеки');
+                    Ext.Msg.alert('Удаление','Не удалось удалить строку');
                 }
             }
         });
