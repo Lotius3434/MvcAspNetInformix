@@ -4,7 +4,7 @@ using System.Configuration;
 using System.Linq;
 using System.Web;
 
-namespace MvcAspNetInformix.DbConnection
+namespace MvcAspNetInformix.DbConnection.ParsingConfiguration
 {
     public class ConfigurationParser : IConfigurationParser
     {

@@ -3,10 +3,11 @@ using MvcAspNetInformix.Models;
 using System.Collections.Generic;
 
 
-namespace MvcAspNetInformix.DbConnection
+namespace MvcAspNetInformix.DbConnection.ConnectionInfrmx
 {
     public class ConnectionInformix : IConnectionInfmxGetData, IConnectionInfmxEditTable
     {
+        ICommandIfxParams commandIfxParams;
         IfxConnection myConnection;
         IfxCommand ifxCommand;
         IfxDataReader ifxDataReader;
@@ -15,7 +16,10 @@ namespace MvcAspNetInformix.DbConnection
         IList<List<string>> listcolumn = new List<List<string>>();
 
         string sql ="";
-
+        public ConnectionInformix(ICommandIfxParams commandIfxParams)
+        {
+            this.commandIfxParams = commandIfxParams;
+        }
         public void CreateConnection(string configuration, string sql)
         {
             this.sql = sql;
@@ -41,9 +45,12 @@ namespace MvcAspNetInformix.DbConnection
             }
             return listcolumn;
         }
-        public ResulResponse EditTable()
+        public ResulResponse EditTable(SqlResult sqlResult)
         {
             ifxCommand = new IfxCommand(sql, myConnection);
+
+            commandIfxParams.CreateParams(ifxCommand, sqlResult);
+
             int res = ifxCommand.ExecuteNonQuery();
             if(res == 1)
             {                

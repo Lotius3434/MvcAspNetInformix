@@ -134,21 +134,25 @@
     <Compile Include="Controllers\EditColumnController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReadJsonController.cs" />
-    <Compile Include="DbConnection\ConfigurationParser.cs" />
-    <Compile Include="DbConnection\ConnectionInformix.cs" />
-    <Compile Include="DbConnection\IConfigurationParser.cs" />
-    <Compile Include="DbConnection\IConnectionInfmxEditTable.cs" />
-    <Compile Include="DbConnection\IConnectionInfmxGetData.cs" />
+    <Compile Include="DbConnection\ConnectionInfrmx\CommandIfxParams.cs" />
+    <Compile Include="DbConnection\ConnectionInfrmx\ICommandIfxParams.cs" />
+    <Compile Include="DbConnection\ParsingConfiguration\ConfigurationParser.cs" />
+    <Compile Include="DbConnection\ConnectionInfrmx\ConnectionInformix.cs" />
+    <Compile Include="DbConnection\ParsingConfiguration\IConfigurationParser.cs" />
+    <Compile Include="DbConnection\ConnectionInfrmx\IConnectionInfmxEditTable.cs" />
+    <Compile Include="DbConnection\ConnectionInfrmx\IConnectionInfmxGetData.cs" />
     <Compile Include="DbConnection\IMasterEditDataTable.cs" />
     <Compile Include="DbConnection\IMasterGetDataTable.cs" />
-    <Compile Include="DbConnection\ISqlMaster.cs" />
+    <Compile Include="DbConnection\WorkSql\ISqlMaster.cs" />
     <Compile Include="DbConnection\MasterConnection.cs" />
-    <Compile Include="DbConnection\SqlMaster.cs" />
+    <Compile Include="DbConnection\WorkSql\SqlMaster.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ListingUsers.cs" />
+    <Compile Include="Models\ParamsUsers.cs" />
     <Compile Include="Models\ResulResponse.cs" />
+    <Compile Include="Models\SqlResult.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

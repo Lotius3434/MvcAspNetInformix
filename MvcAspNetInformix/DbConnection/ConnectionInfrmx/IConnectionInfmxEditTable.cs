@@ -1,11 +1,11 @@
 ﻿using MvcAspNetInformix.Models;
 
-namespace MvcAspNetInformix.DbConnection
+namespace MvcAspNetInformix.DbConnection.ConnectionInfrmx
 {
     public interface IConnectionInfmxEditTable
     {
         void CreateConnection(string configuration, string sql);
-        ResulResponse EditTable();
+        ResulResponse EditTable(SqlResult sqlResult);
         void OpenConnection();
         void CloseConnection();
     }
