@@ -24,7 +24,7 @@ Ext.define('MvcExtTest.view.TableUser' ,{
             displayMsg: 'Displaying topics {0} - {1} of {2}',
             emptyMsg: "No topics to display"
         }),
-            this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
+            /*this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
                 dock: 'right',
                 items: [
                     {
@@ -40,6 +40,9 @@ Ext.define('MvcExtTest.view.TableUser' ,{
                         enableToggle: true,
                         scale: 'large'
                     }]
+            }),*/
+            this.dockedItems = Ext.create('MvcExtTest.view.ToolbarEditUser', {
+                
             }),
           
             this.callParent(arguments);

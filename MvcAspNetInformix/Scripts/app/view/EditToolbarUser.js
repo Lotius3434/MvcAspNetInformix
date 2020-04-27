@@ -9,14 +9,21 @@
     initComponent: function () {
         this.items = [{
             text: 'Создать',
+            enableToggle: true,
+            scale: 'large',
             action: 'new'
         }, {
             text: 'Изменить',
+            enableToggle: true,
+            scale: 'large',
             action: 'save'
         }, {
             text: 'Удалить',
+            enableToggle: true,
+            scale: 'large',
             action: 'delete'
         }];
+
         /*this.dockedItems = [{
             xtype: 'toolbar',
             docked: 'right',

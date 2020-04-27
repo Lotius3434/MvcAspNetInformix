@@ -9,6 +9,9 @@ Ext.define('MvcExtTest.controller.Users', {
             'viewport > tableUser': {
                 itemdblclick: this.editBook
             },
+            'viewport > tableUser': {
+                itemdblclick: this.editBook
+            },
             'editTableUser button[action=new]': {
                 click: this.createBook
             },
