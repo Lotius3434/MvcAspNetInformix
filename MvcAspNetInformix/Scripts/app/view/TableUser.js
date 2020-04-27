@@ -32,14 +32,18 @@ Ext.define('MvcExtTest.view.TableUser' ,{
                     {
                         text: 'Создать',
                         scale: 'large',
-                        action: 'on',
-                        id: 'create',
+                        action: 'create',
+                        id: 'create'
                     }, {
                         text: 'Изменить',
-                        scale: 'large'
+                        scale: 'large',
+                        action: 'edit',
+                        id: 'edit'
                     },{
                         text: 'Удалить',
-                        scale: 'large'
+                        scale: 'large',
+                        action: 'delete',
+                        id: 'delete'
                     }]
             }),
             

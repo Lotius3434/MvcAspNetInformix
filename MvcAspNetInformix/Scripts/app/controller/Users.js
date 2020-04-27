@@ -1,7 +1,7 @@
 Ext.define('MvcExtTest.controller.Users', {
     extend: 'Ext.app.Controller',
 
-    views: ['TableUser', 'EditTableUser','ToolbarEditUser'],
+    views: ['TableUser', 'AddColumn', 'EditColumn','DeleteColumn'],
     stores: ['UsersStore'],
     models: ['User'],
     
@@ -14,22 +14,27 @@ Ext.define('MvcExtTest.controller.Users', {
                 itemclick: this.editBook
                 
             },
-            'tableUser button[action=on]': {
+            'tableUser button[action=create]': {
+                click: this.editBook
+            },
+            'tableUser button[action=edit]': {
+                click: this.editBook
+            },
+            'tableUser button[action=delete]': {
                 click: this.editBook
             },
             
-            'editTableUser button[action=new]': {
-                click: this.createBook
-            },
-            'editTableUser button[action=save]': {
+            
+            'editColumn button[action=save]': {
                 click: this.updateBook
             },
-            'editTableUser button[action=delete]': {
+            'deleteColumn button[action=delete]': {
                 click: this.deleteBook
             },
-            'editTableUser button[action=clear]': {
-                click: this.clearForm
-            }
+            'addColumn button[action=create]': {
+                click: this.createBook
+            },
+            
         });
     },
     // обновление
@@ -45,7 +50,7 @@ Ext.define('MvcExtTest.controller.Users', {
             success: function(response){
                 var data=Ext.decode(response.responseText);
                 if(data.success){
-                    var store = Ext.widget('tableUser').getStore();
+                    var store = Ext.widget('editColumn').getStore();
                     store.load();
                     Ext.Msg.alert('Обновление',data.message);
                 }
@@ -67,7 +72,7 @@ Ext.define('MvcExtTest.controller.Users', {
                 var data=Ext.decode(response.responseText);
                 if(data.success){
                     Ext.Msg.alert('Создание',data.message);
-                    var store = Ext.widget('tableUser').getStore();
+                    var store = Ext.widget('addColumn').getStore();
                     store.load();
                 }
                 else{
@@ -88,7 +93,7 @@ Ext.define('MvcExtTest.controller.Users', {
                 var data=Ext.decode(response.responseText);
                 if(data.success){
                     Ext.Msg.alert('Удаление',data.message);
-                    var store = Ext.widget('editTableUser').getStore();
+                    var store = Ext.widget('deleteColumn').getStore();
                     var record = store.getById(id);
                     store.remove(record);
                     form.getForm.reset();
@@ -99,20 +104,21 @@ Ext.define('MvcExtTest.controller.Users', {
             }
         });
     },
-    clearForm: function(grid, record) {
-        var view = Ext.widget('editTableUser');
-        view.down('form').getForm().reset();
-    },
     
     editBook: function (e, record) {
         if (e.id == "create") {
-            var view = Ext.widget('editTableUser');
+            var view = Ext.widget('addColumn');
             view.down('form').loadRecord(this.record);
         }
-        this.record = record;
-        
-        
-        
+        if (e.id == "edit") {
+            var view = Ext.widget('editColumn');
+            view.down('form').loadRecord(this.record);
+        };
+        if (e.id == "delete") {
+            var view = Ext.widget('deleteColumn');
+            view.down('form').loadRecord(this.record);
+        };
+        this.record = record;        
     },
     
 
