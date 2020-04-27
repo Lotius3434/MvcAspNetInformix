@@ -50,8 +50,8 @@ Ext.define('MvcExtTest.controller.Users', {
             success: function(response){
                 var data=Ext.decode(response.responseText);
                 if(data.success){
-                    var store = Ext.widget('editColumn').getStore();
-                    store.load();
+                    //var store = Ext.widget('editColumn').getStore();
+                    //store.load();
                     Ext.Msg.alert('Обновление',data.message);
                 }
                 else{
@@ -72,8 +72,8 @@ Ext.define('MvcExtTest.controller.Users', {
                 var data=Ext.decode(response.responseText);
                 if(data.success){
                     Ext.Msg.alert('Создание',data.message);
-                    var store = Ext.widget('addColumn').getStore();
-                    store.load();
+                    //var store = Ext.widget('addColumn').getStore();
+                    //store.load();
                 }
                 else{
                     Ext.Msg.alert('Создание','Не удалось создать строку');
@@ -108,7 +108,7 @@ Ext.define('MvcExtTest.controller.Users', {
     editBook: function (e, record) {
         if (e.id == "create") {
             var view = Ext.widget('addColumn');
-            view.down('form').loadRecord(this.record);
+            view.down('form').loadRecord(record);
         }
         if (e.id == "edit") {
             var view = Ext.widget('editColumn');

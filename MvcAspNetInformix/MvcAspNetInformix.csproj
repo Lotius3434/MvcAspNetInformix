@@ -166,7 +166,6 @@
     <Content Include="Scripts\app\view\AddColumn.js" />
     <Content Include="Scripts\app\view\DeleteColumn.js" />
     <Content Include="Scripts\app\view\EditColumn.js" />
-    <Content Include="Scripts\app\view\EditTableUser.js" />
     <Content Include="Scripts\app\view\TableUser.js" />
     <Content Include="Scripts\extjs\ext-all.js" />
     <Content Include="Scripts\extjs\resources\css\ext-all-access-debug.css" />
