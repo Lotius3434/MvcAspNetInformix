@@ -8,23 +8,8 @@ Ext.define('MvcExtTest.view.TableUser' ,{
     
 
     initComponent: function () {
-        this.items = [{
-            xtype: 'form',
-            items: [{
-                xtype: 'textfield',
-                name: 'name',
-                fieldLabel: 'Название'
-            }, {
-                xtype: 'textfield',
-                name: 'author',
-                fieldLabel: 'Автор'
-            }, {
-                 xtype: 'textfield',
-                name: 'year',
-                fieldLabel: 'Год',
-                minValue: 1,
-            }]
-        }];
+        
+        
 
         this.columns = [
             {header: 'id',  dataIndex: 'id',  flex: 1},
@@ -39,6 +24,23 @@ Ext.define('MvcExtTest.view.TableUser' ,{
             displayMsg: 'Displaying topics {0} - {1} of {2}',
             emptyMsg: "No topics to display"
         }),
+            this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
+                dock: 'right',
+                items: [
+                    {
+                        text: 'Создать',
+                        enableToggle: true,
+                        scale: 'large'
+                    }, {
+                        text: 'Изменить',
+                        enableToggle: true,
+                        scale: 'large'
+                    },{
+                        text: 'Удалить',
+                        enableToggle: true,
+                        scale: 'large'
+                    }]
+            }),
           
             this.callParent(arguments);
      }
