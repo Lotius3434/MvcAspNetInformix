@@ -1,17 +1,23 @@
 Ext.define('MvcExtTest.controller.Users', {
     extend: 'Ext.app.Controller',
 
-    views: ['TableUser', 'EditTableUser'],
+    views: ['TableUser', 'EditTableUser','ToolbarEditUser'],
     stores: ['UsersStore'],
     models: ['User'],
-    init: function() {
+    
+    
+    init: function () {
+        
         this.control({
+             
             'viewport > tableUser': {
-                itemdblclick: this.editBook
+                itemclick: this.editBook
+                
             },
-            'viewport > tableUser': {
-                itemdblclick: this.editBook
+            'tableUser button[action=on]': {
+                click: this.editBook
             },
+            
             'editTableUser button[action=new]': {
                 click: this.createBook
             },
@@ -97,10 +103,17 @@ Ext.define('MvcExtTest.controller.Users', {
         var view = Ext.widget('editTableUser');
         view.down('form').getForm().reset();
     },
-    editBook: function(grid, record) {
-        var view = Ext.widget('editTableUser');
-        view.down('form').loadRecord(record);
-    }
-
+    
+    editBook: function (e, record) {
+        if (e.id == "create") {
+            var view = Ext.widget('editTableUser');
+            view.down('form').loadRecord(this.record);
+        }
+        this.record = record;
+        
+        
+        
+    },
+    
 
 });

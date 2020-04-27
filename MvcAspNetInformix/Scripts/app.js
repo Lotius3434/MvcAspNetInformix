@@ -9,7 +9,8 @@ Ext.application({
 			layout: 'fit',
 			items: {
 				xtype: 'tableUser',		
-			},
+			}
+			
 
 		});
 	}

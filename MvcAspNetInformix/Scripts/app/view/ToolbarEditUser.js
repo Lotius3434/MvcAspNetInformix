@@ -1,9 +1,10 @@
 ﻿Ext.define('MvcExtTest.view.ToolbarEditUser',{
-    extend : 'Ext.toolbar.Toolbar',
+    extend: 'Ext.toolbar.Toolbar',
     alias: 'widget.toolbarEditUser',
     autoShow: true,
-
-    initComponent : function () {
+    
+    initComponent: function () {
+        
         this.item = [
             {
                 text: 'Создать',
@@ -17,7 +18,8 @@
                 text: 'Удалить',
                 action : '',
             },
-        ]
+        ],
+        this.callParent(arguments);
 
     }
 

@@ -12,38 +12,38 @@ Ext.define('MvcExtTest.view.TableUser' ,{
         
 
         this.columns = [
-            {header: 'id',  dataIndex: 'id',  flex: 1},
-            {header: 'Фамилия',  dataIndex: 'surname',  flex: 1},
-            {header: 'Имя', dataIndex: 'name', flex: 1},
-            {header: 'Отчество', dataIndex: 'patronymicName', flex: 1}
+            { header: 'id', dataIndex: 'id', flex: 1 },
+            { header: 'Фамилия', dataIndex: 'surname', flex: 1 },
+            { header: 'Имя', dataIndex: 'name', flex: 1 },
+            { header: 'Отчество', dataIndex: 'patronymicName', flex: 1 }
         ],
-        this.bbar = Ext.create('Ext.PagingToolbar', {
-            store: 'UsersStore',
-            pageSize: 10,
-            displayInfo: true,
-            displayMsg: 'Displaying topics {0} - {1} of {2}',
-            emptyMsg: "No topics to display"
-        }),
-            /*this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
+            this.bbar = Ext.create('Ext.PagingToolbar', {
+                store: 'UsersStore',
+                pageSize: 10,
+                displayInfo: true,
+                displayMsg: 'Displaying topics {0} - {1} of {2}',
+                emptyMsg: "No topics to display"
+            }),
+
+            this.dockedItems = Ext.create('Ext.toolbar.Toolbar', {
+                alias: 'widget.toolbarEditUser',
                 dock: 'right',
                 items: [
                     {
                         text: 'Создать',
-                        enableToggle: true,
-                        scale: 'large'
+                        scale: 'large',
+                        action: 'on',
+                        id: 'create',
                     }, {
                         text: 'Изменить',
-                        enableToggle: true,
                         scale: 'large'
                     },{
                         text: 'Удалить',
-                        enableToggle: true,
                         scale: 'large'
                     }]
-            }),*/
-            this.dockedItems = Ext.create('MvcExtTest.view.ToolbarEditUser', {
-                
             }),
+            
+            
           
             this.callParent(arguments);
      }
