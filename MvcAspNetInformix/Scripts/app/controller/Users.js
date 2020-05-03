@@ -23,6 +23,9 @@ Ext.define('MvcExtTest.controller.Users', {
             'tableUser button[action=delete]': {
                 click: this.editBook
             },
+            'tableUser button[action=downloadreport]': {
+                click: this.downloadreport
+            },
             
             
             'editColumn button[action=save]': {
@@ -103,6 +106,9 @@ Ext.define('MvcExtTest.controller.Users', {
                 }
             }
         });
+    },
+    downloadreport: function () {
+
     },
     
     editBook: function (e, record) {
