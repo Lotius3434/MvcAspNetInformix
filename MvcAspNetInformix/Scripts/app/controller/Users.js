@@ -108,6 +108,29 @@ Ext.define('MvcExtTest.controller.Users', {
         });
     },
     downloadreport: function () {
+        Ext.Ajax.request({
+            type: 'pdf',
+            
+            method: 'POST',
+            url: 'Report/GetReport',
+            success: function (response) {
+                var win = window.open("report.pdf", '_blank');
+                win.location = url;
+                win.focus();
+            }
+            /*params: values,
+            success: function (response, options) {
+                var data = Ext.decode(response.responseText);
+                if (data.success) {
+                    Ext.Msg.alert('Создание', data.message);
+                    //var store = Ext.widget('addColumn').getStore();
+                    //store.load();
+                }
+                else {
+                    Ext.Msg.alert('Создание', 'Не удалось создать строку');
+                }
+            }*/
+        });
 
     },
     

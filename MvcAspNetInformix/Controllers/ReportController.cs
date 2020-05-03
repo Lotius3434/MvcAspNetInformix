@@ -32,7 +32,8 @@ namespace MvcAspNetInformix.Controllers
             string reportPath = $"FastReport/{reportName}";
             Stream stream = new MemoryStream();
             WebReport webReport = new WebReport();
-            webReport.Report.Load(reportPath);
+            webReport.Report.Load(this.Server.MapPath("~/FastReport/MvcAspFastReport.frx"));
+            //webReport.ReportFile = this.Server.MapPath("~/FastReport/MvcAspFastReport.frx");
             TableObject table = webReport.Report.FindObject("Table1") as TableObject;
             table.ColumnCount = 4;
             table.RowCount = users.Count;
