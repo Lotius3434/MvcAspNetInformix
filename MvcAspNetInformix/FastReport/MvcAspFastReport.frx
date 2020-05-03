@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="04/30/2020 14:32:54" ReportInfo.Modified="05/03/2020 15:34:25" ReportInfo.CreatorVersion="2020.2.13.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="04/30/2020 14:32:54" ReportInfo.Modified="05/03/2020 15:41:42" ReportInfo.CreatorVersion="2020.2.13.0">
   <ScriptText>using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ namespace FastReport
 }
 </ScriptText>
   <Dictionary>
-    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlqOc+F5wAP+K/6RYn+K4UWz/7RmCwCvrsuuEIVfIVW9x0fdUb9AStsGLVsEZcDW7pq"/>
+    <OdbcDataConnection Name="Connection" ConnectionString="rijcmlqOc+F5wAP+K/6RYn+K4UWz/7RmCwCvrsuuEIVfIVW9x3p+tIg8N83hm0SzsuX+UOi"/>
     <Parameter Name="Surname" DataType="System.String"/>
     <Parameter Name="Parameter" DataType="System.String"/>
   </Dictionary>
@@ -38,10 +38,10 @@ namespace FastReport
         <TableColumn Name="Column7" Width="179.08"/>
         <TableColumn Name="Column8" Width="179.08"/>
         <TableRow Name="Row6">
-          <TableCell Name="Cell25" Text="id" Font="Arial, 10pt"/>
-          <TableCell Name="Cell26" Text="Фамилия" Font="Arial, 10pt"/>
-          <TableCell Name="Cell27" Text="Имя" Font="Arial, 10pt"/>
-          <TableCell Name="Cell28" Text="Отчество" Font="Arial, 10pt"/>
+          <TableCell Name="Cell25" Border.Lines="All" Text="id" Font="Arial, 10pt"/>
+          <TableCell Name="Cell26" Border.Lines="All" Text="Фамилия" Font="Arial, 10pt"/>
+          <TableCell Name="Cell27" Border.Lines="All" Text="Имя" Font="Arial, 10pt"/>
+          <TableCell Name="Cell28" Border.Lines="All" Text="Отчество" Font="Arial, 10pt"/>
         </TableRow>
       </TableObject>
     </PageHeaderBand>
