@@ -3127,6 +3127,7 @@
     <Folder Include="Views\EditColumn\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FastReport\MvcAspFastReport.frx" />
     <None Include="packages.config" />
     <Content Include="Scripts\extjs\resources\ext-theme-access\Readme.md" />
     <Content Include="Scripts\extjs\resources\ext-theme-classic-sandbox\Readme.md" />
