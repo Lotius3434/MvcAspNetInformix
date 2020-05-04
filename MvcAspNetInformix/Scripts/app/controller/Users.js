@@ -108,30 +108,22 @@ Ext.define('MvcExtTest.controller.Users', {
         });
     },
     downloadreport: function () {
-        Ext.Ajax.request({
-            type: 'pdf',
-            
+        
+        //window.open('Report/GetReport', '.pdf')
+        var form = Ext.create('Ext.form.Panel', {
+            standardSubmit: true,
             method: 'POST',
             url: 'Report/GetReport',
-            success: function (response) {
-                var win = window.open("report.pdf", '_blank');
-                win.location = url;
-                win.focus();
-            }
-            /*params: values,
-            success: function (response, options) {
-                var data = Ext.decode(response.responseText);
-                if (data.success) {
-                    Ext.Msg.alert('Создание', data.message);
-                    //var store = Ext.widget('addColumn').getStore();
-                    //store.load();
-                }
-                else {
-                    Ext.Msg.alert('Создание', 'Не удалось создать строку');
-                }
-            }*/
+            
         });
 
+        // Call the submit to begin the file download.
+        form.submit({
+            target: '_blank', // Avoids leaving the page. 
+            
+        });
+
+     
     },
     
     editBook: function (e, record) {

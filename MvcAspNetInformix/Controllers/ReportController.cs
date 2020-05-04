@@ -28,8 +28,8 @@ namespace MvcAspNetInformix.Controllers
             ISqlMaster sqlMaster = cont.Resolve<ISqlMaster>();
             List<Users> users = masterConnection.GetDataTable(sqlMaster.GetAllColumn());
 
-            string reportName = "MvcAspFastReport.frx";
-            string reportPath = $"FastReport/{reportName}";
+            //string reportName = "MvcAspFastReport.frx";
+            //string reportPath = $"FastReport/{reportName}";
             Stream stream = new MemoryStream();
             WebReport webReport = new WebReport();
             webReport.Report.Load(this.Server.MapPath("~/FastReport/MvcAspFastReport.frx"));
@@ -58,20 +58,11 @@ namespace MvcAspNetInformix.Controllers
 
                 webReport.Report.Export(new PDFExport(), stream);
                 stream.Position = 0;
-
-
-
-                //if (report.Prepare())
-                //    report.ShowPrepared();
-
-                //PDFExport pdf = new PDFExport();
-                //report.Export(pdf, "ExportedPDF.pdf");
-
             }
 
 
 
-            return File(stream, "application/zip", "report.pdf");
+            return File(stream, "application/zip", "Report.pdf");
         }
     }
 }
