@@ -47,7 +47,7 @@ Ext.define('MvcExtTest.view.TableUser' ,{
                     }]
             }),
             
-            
+            ///
           
             this.callParent(arguments);
      }
